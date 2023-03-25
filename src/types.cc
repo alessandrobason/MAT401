@@ -80,30 +80,30 @@ vec3& vec3::operator/=(const vec3& v) {
 }
 
 vec3& vec3::operator+=(number v) {
-	x += x;
-	y += y;
-	z += z;
+	x += v;
+	y += v;
+	z += v;
 	return *this;
 }
 
 vec3& vec3::operator-=(number v) {
-	x -= x;
-	y -= y;
-	z -= z;
+	x -= v;
+	y -= v;
+	z -= v;
 	return *this;
 }
 
 vec3& vec3::operator*=(number v) {
-	x *= x;
-	y *= y;
-	z *= z;
+	x *= v;
+	y *= v;
+	z *= v;
 	return *this;
 }
 
 vec3& vec3::operator/=(number v) {
-	x /= x;
-	y /= y;
-	z /= z;
+	x /= v;
+	y /= v;
+	z /= v;
 	return *this;
 }
 

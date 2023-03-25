@@ -5,6 +5,7 @@
 // using number = float;
 using number = double;
 
+// 3x3 matrix
 using matrix = number[9];
 
 struct vec3 {
@@ -12,6 +13,7 @@ struct vec3 {
 	vec3(number x, number y, number z);
 	vec3(number value_for_all);
 
+	// returns the magnitude of the vector
 	number mag() const;
 
 	vec3 operator+(const vec3& v) const;

@@ -12,13 +12,12 @@ void solveRungeKutta(
 	// set starting velocity
 	vel[0] = initial_vel;
 
-	// http://hep.physics.wayne.edu/~harr/courses/5210/w08/lecture22.htm#:~:text=Inertia%20Tensor%20for%20a%20Solid%20Cone&text=%CF%81%20%3D%203M%20%2F%20(%CF%80R%C2%B2%20h).
 	// moments of inertia for a cone
 	const number r2 = radius * radius;
 	const number h2 = height * height / 4.0;
 	const number I1 = 3.0 / 20.0 * mass * (r2 + h2);
 	const number I2 = 3.0 / 20.0 * mass * (r2 + h2);
-	const number I3 = 3.0 / 10.0 * mass * (r2);
+	const number I3 = 3.0 / 10.0 * mass * (r2); // simplify 3/20 * 2 to 3/10
 
 	// gamma values
 	const number g1 = (I3 - I2) / I1;
@@ -46,15 +45,13 @@ void solveRungeKutta(
 			-step_size * g3 * (p.x + (k2.x * 0.5)) * (p.y + (k2.y * 0.5))
 		};
 
-
 		const vec3 k4 = {
 			-step_size * g1 * (p.y + k3.y) * (p.z + k3.z),
 			-step_size * g2 * (p.x + k3.x) * (p.z + k3.z),
 			-step_size * g3 * (p.x + k3.x) * (p.y + k3.y)
 		};
 
-
-		// next array values
+		// calculate next array values
 		vel[n + 1] = p + k1 / 6.0 + k2 / 3.0 + k3 / 3.0 + k4 / 6.0;
 	}
 }

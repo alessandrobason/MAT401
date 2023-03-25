@@ -4,7 +4,6 @@
 
 void solveGeneralMotion(
 	number step_size,
-	number radius,
 	const vec3 &initial_position,
 	vec3 *pos,
 	const vec3 *vel,
@@ -12,9 +11,9 @@ void solveGeneralMotion(
 	int count
 ) {
 	pos[0] = initial_position;
-	vec3 r1 = pos[0];
+	vec3 r1 = initial_position;
 
-	for (int n = 0; n < count; ++n) {
+	for (int n = 0; n < (count - 1); ++n) {
 		const vec3& v = vel[n];
 		number v_mag = v.mag();
 		vec3 vel_norm = v / v_mag;

@@ -7,7 +7,7 @@
 
 int main() {
 	constexpr number time_max = 20.0;
-	constexpr int count = 2000;
+	constexpr int count = 2'000;
 	constexpr number step_size = time_max / count;
 	number time = 0.0;
 
@@ -59,7 +59,7 @@ int main() {
 
 	Euler<count> euler{};
 	solveSemiImplicitEuler(step_size, initial_vel, acceleration, euler);
-
+	
 	// - Task 4
 	// From your solutions for Task 3, produce plots of the vertical velocity and
 	// vertical displacement as a function of time t
@@ -90,7 +90,7 @@ int main() {
 	const vec3 initial_pos = vec3(0, 3.0 / 4.0 * radius, 0);
 
 	GeneralMotion<count> gm{};
-	solveGeneralMotion(step_size, radius, initial_pos, gm, rk, euler);
+	solveGeneralMotion(step_size, initial_pos, gm, rk, euler);
 
 	FILE *task_5 = fopen("task_5.csv", "wb");
 
